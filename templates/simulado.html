@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page">
+    <h1>Simulado</h1>
+    <p>Teste seus conhecimentos respondendo às questões abaixo.</p>
+    <form method="POST" class="form-simulado">
+        {% for idx, question in enumerate(questions) %}
+        <div class="question">
+            <label><strong>{{ idx + 1 }}. {{ question.question }}</strong></label>
+            <input type="text" name="question_{{ idx }}" placeholder="Digite sua resposta" required>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn">Enviar Respostas</button>
+    </form>
+</div>
+{% endblock %}
