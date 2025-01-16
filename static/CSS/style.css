@@ -175,4 +175,360 @@ table .btn-delete:hover {
     background: #d32f2f;
 }
 
+/* Simulado */
+
+/* Container principal */
+.simulado-container {
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    color: #000;
+}
+
+/* Títulos */
+.simulado-container h1,
+.simulado-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.simulado-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #6a11cb;
+}
+
+.simulado-container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 40px;
+}
+
+/* Formulário */
+.simulado-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.simulado-container form label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.simulado-container form input,
+.simulado-container form button {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.simulado-container form input:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+}
+
+.simulado-container form button {
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.simulado-container form button:hover {
+    background: #5a0fb1;
+}
+
+/* Lista de simulados */
+.simulado-list {
+    margin-top: 20px;
+}
+
+.simulado-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.simulado-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.simulado-item p {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Preview do PDF */
+.simulado-item embed {
+    width: 100%;
+    height: 250px;
+    margin-top: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Botões de ação */
+.simulado-item .btn-remove {
+    padding: 10px 20px;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.simulado-item .btn-remove:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .simulado-container {
+        padding: 20px;
+    }
+
+    .simulado-container h1 {
+        font-size: 2rem;
+    }
+
+    .simulado-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .simulado-item {
+        padding: 15px;
+    }
+
+    .simulado-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .simulado-item p {
+        font-size: 0.9rem;
+    }
+}
+
+/*Aba timer*/
+
+/* Pomodoro Timer Styles */
+.pomodoro-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pomodoro-container .timer-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6a11cb;
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #444;
+    margin: 20px 0;
+    background: #f7f7f7;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.timer-buttons .btn {
+    padding: 10px 20px;
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.timer-buttons .btn:hover {
+    background: #5a0fb1;
+    transform: scale(1.05);
+}
+
+.timer-buttons .btn-reset {
+    background: #f44336;
+}
+
+.timer-buttons .btn-reset:hover {
+    background: #d32f2f;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .pomodoro-container {
+        padding: 20px;
+    }
+
+    .timer-display {
+        font-size: 2.5rem;
+    }
+
+    .timer-buttons .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Análise page */
+
+/* Estilos gerais para a página de análise */
+.analise-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analise-container h1,
+.analise-container h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.analise-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4CAF50; /* Verde para destaque */
+}
+
+.analise-container h2 {
+    font-size: 1.8rem;
+    color: #555555;
+}
+
+/* Estilo para o gráfico */
+canvas {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+/* Estilo da tabela de simulados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    text-align: left;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table td {
+    border-bottom: 1px solid #ddd;
+    color: #333333;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsividade para tabelas */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Botões ou links dentro da análise */
+.analise-container a,
+.analise-container button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.analise-container a:hover,
+.analise-container button:hover {
+    background-color: #45a049;
+}
+
+/* Destaques de informações */
+.analise-container p {
+    font-size: 1rem;
+    color: #333333;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.analise-container p span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+
 

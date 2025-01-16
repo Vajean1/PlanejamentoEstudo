@@ -1,0 +1,93 @@
+<head>
+    <link rel="stylesheet" href="/static/CSS/style.css">k
+</head>
+<div class="analise-container">
+    <h1>Análise de Simulados</h1>
+
+    <h2>Resumo</h2>
+    <p>Total de Simulados: {{ simulados|length }}</p>
+    <p>Média de Acertos: {{ media_acertos }}%</p>
+    <p>Melhor Simulado: {{ melhor_simulado }} - {{ melhor_porcentagem }}%</p>
+
+    <h2>Gráfico de Performance</h2>
+    <canvas id="performanceChart" width="400" height="200"></canvas>
+
+    <h2>Simulados Detalhados</h2>
+    {% if simulados|length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Total de Questões</th>
+                    <th>Acertos</th>
+                    <th>Erros</th>
+                    <th>Porcentagem</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for simulado in simulados %}
+                <tr>
+                    <td>{{ simulado.nome }}</td>
+                    <td>{{ simulado.total_questoes }}</td>
+                    <td>{{ simulado.acertos }}</td>
+                    <td>{{ simulado.erros }}</td>
+                    <td>{{ simulado.porcentagem }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Não há simulados cadastrados ainda.</p>
+    {% endif %}
+</div>
+
+<!-- Script para o Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    const performanceChart = new Chart(ctx, {
+        type: 'line', // Ou 'bar' para barras
+        data: {
+            labels: {{ simulados | map(attribute='nome') | list | tojson }},
+            datasets: [{
+                label: 'Performance (%)',
+                data: {{ simulados | map(attribute='porcentagem') | list | tojson }},
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.raw + '%';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Porcentagem de Acertos'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Simulados'
+                    }
+                }
+            }
+        }
+    });
+</script>
