@@ -1,1 +1,68 @@
-<h1>Simulado</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulados</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <style>
+        /* Reset básico */
+        body, h1, h2, p, form, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo global */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #6a11cb, #2575fc);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Simulados</h1>
+    <form action="/simulado" method="POST" enctype="multipart/form-data">
+        <label for="nome">Nome do Simulado:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="total_questoes">Total de Questões:</label>
+        <input type="number" id="total_questoes" name="total_questoes" required>
+        <br>
+        <label for="acertos">Acertos:</label>
+        <input type="number" id="acertos" name="acertos" required>
+        <br>
+        <label for="erros">Erros:</label>
+        <input type="number" id="erros" name="erros" required>
+        <br>
+        <label for="pdf">Enviar PDF:</label>
+        <input type="file" id="pdf" name="pdf" accept="application/pdf" required>
+        <br>
+        <button type="submit">Adicionar Simulado</button>
+    </form>
+
+    <h2>Simulados Adicionados</h2>
+    {% for simulado in simulados %}
+        <div style="border: 1px solid #000; margin-bottom: 20px; padding: 10px;">
+            <h3>{{ simulado['nome'] }}</h3>
+            <p>Total de Questões: {{ simulado['total_questoes'] }}</p>
+            <p>Acertos: {{ simulado['acertos'] }} | Erros: {{ simulado['erros'] }}</p>
+            <p>Porcentagem de Acertos: {{ simulado['porcentagem'] }}%</p>
+            <embed src="{{ url_for('static', filename='uploads/' + simulado['pdf']) }}" 
+                   type="application/pdf" 
+                   width="100%" 
+                   height="200px">
+            <form action="/remover/{{ loop.index0 }}" method="POST">
+                <button type="submit">Remover</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>
